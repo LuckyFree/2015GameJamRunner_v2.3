@@ -8,12 +8,17 @@ public class ScrollingManager : MonoBehaviour {
     public bool destroy;
     public float DistanceFromCameraToClone;
     public string prefabPath;//"Prefabs/Background/XXXXXX"
+    public string prefabPathSup;//"Prefabs/Background/XXXXXX"
+    public string prefabPathSup2;//"Prefabs/Background/XXXXXX"
     public float XSize;
     public float DistanceFromCameraToDestroy;
+    public int nbPrefab;
 
     private Transform myTransform;
     private Vector3 direction;
     private GameObject prefabToClone;
+    private GameObject prefabToCloneBis;
+    private GameObject prefabToCloneBis2;
     private Transform camTransform;
     //private LevelManager levelManager;
     //private GameObject dynamicHierarchy;
@@ -24,9 +29,13 @@ public class ScrollingManager : MonoBehaviour {
         if (clone)
         {
             prefabToClone = Resources.Load(prefabPath) as GameObject;
+            if (prefabPathSup.Length > 5)
+            {
+                prefabToCloneBis = Resources.Load(prefabPathSup) as GameObject;
+                prefabToCloneBis2 = Resources.Load(prefabPathSup2) as GameObject;
+            }
             camTransform = GameObject.Find("Main Camera").GetComponent<Transform>();
-            if (prefabToClone == null)
-                Debug.Log("prefab null!!! prefabPath  " + prefabPath);
+
             //levelManager = LevelManager.GetInstance();
             //dynamicHierarchy = GameObject.Find("DYNAMIC") as GameObject;
         }
@@ -45,7 +54,18 @@ public class ScrollingManager : MonoBehaviour {
         {
             Vector3 deplacement = new Vector3(XSize, 0, 0);
 
-            Instantiate(prefabToClone, myTransform.position + deplacement, myTransform.rotation);
+            if (prefabToCloneBis == null)
+                Instantiate(prefabToClone, myTransform.position + deplacement, myTransform.rotation);
+            else
+            {
+                int rand = Random.Range(0, nbPrefab);
+                if (rand == 0)
+                    Instantiate(prefabToClone, myTransform.position + deplacement, myTransform.rotation);
+                else if(rand == 1)
+                    Instantiate(prefabToCloneBis, myTransform.position + deplacement, myTransform.rotation);
+                else
+                    Instantiate(prefabToCloneBis2, myTransform.position + deplacement, myTransform.rotation);
+            }
             //GameObject newBackground = Instantiate(prefabToClone, myTransform.position + deplacement, myTransform.rotation) as GameObject;
             //newBackground.transform.parent = dynamicHierarchy.transform;
             //Renderer rendTemp = newBackground.GetComponent<Renderer>();

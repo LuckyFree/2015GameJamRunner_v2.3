@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 Build from Mac Pro de Kevin at 11/18/2015 01:58:38
+=======
+Build from LUCKYFOOT at 11/18/2015 1:51:07 AM
+>>>>>>> origin/master
