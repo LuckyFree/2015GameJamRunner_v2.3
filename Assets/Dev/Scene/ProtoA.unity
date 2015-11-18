@@ -369,6 +369,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 11478290, guid: 6fbdafc8fa82ec24a959d560a9c28f33, type: 2}
+      propertyPath: m_Filepath
+      value: Audio/GaCha 2015 - Musique - Marker - Musique .txt
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6fbdafc8fa82ec24a959d560a9c28f33, type: 2}
   m_IsPrefabParent: 0

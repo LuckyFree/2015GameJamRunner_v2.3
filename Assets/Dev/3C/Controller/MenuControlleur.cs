@@ -5,7 +5,29 @@ public class MenuControlleur : MonoBehaviour {
 
 	public void StartGame()
 	{
-		Debug.Log("Test Menu");
+		PlayerPrefs.SetInt ("Lvl", 0);
+		PlayerPrefs.Save ();
+		Application.LoadLevel("ProtoA");
+	}
+
+	public void StartGameMed()
+	{
+		PlayerPrefs.SetInt ("Lvl", 1);
+		PlayerPrefs.Save ();
+		Application.LoadLevel("ProtoA");
+	}
+
+	public void StartGameHard()
+	{
+		PlayerPrefs.SetInt ("Lvl", 2);
+		PlayerPrefs.Save ();
+		Application.LoadLevel("ProtoA");
+	}
+
+	public void StartGameExp()
+	{		
+		PlayerPrefs.SetInt ("Lvl", 3);
+		PlayerPrefs.Save ();
 		Application.LoadLevel("ProtoA");
 	}
 
@@ -17,6 +39,11 @@ public class MenuControlleur : MonoBehaviour {
 	public void BackToTheMenu()
 	{
 		Application.LoadLevel("Menu");
+	}
+
+	public void CustomDrum()
+	{
+		Application.LoadLevel("CustomizeAudioButtonsSlots");
 	}
 
 

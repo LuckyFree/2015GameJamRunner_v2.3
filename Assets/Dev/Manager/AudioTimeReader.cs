@@ -38,6 +38,7 @@ public class AudioTimeReader : MonoBehaviour
         // Use this for initialization
         void Start()
         {
+			m_Filepath = Application.dataPath + "/Raw" + "/GaCha 2015 - Musique - Marker - Musique .txt";
             ReadFile();
         }
 
